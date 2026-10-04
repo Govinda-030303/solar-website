@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* --- Solar Brand Color Palette --- */
+  --color-solar-50: #fffbeb;
+  --color-solar-100: #fef3c7;
+  --color-solar-200: #fde68a;
+  --color-solar-300: #fcd34d;
+  --color-solar-400: #fbbf24;
+  --color-solar-500: #f59e0b;
+  --color-solar-600: #d97706;
+  --color-solar-700: #b45309;
+  --color-solar-800: #92400e;
+  --color-solar-900: #78350f;
+
+  /* --- Warm Neutral Palette (Light Theme) --- */
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+  --color-slate-950: #020617;
+
+  /* --- Accent Emerald Green (Eco / Savings / Trust) --- */
+  --color-teal-50: #ecfdf5;
+  --color-teal-100: #d1fae5;
+  --color-teal-400: #34d399;
+  --color-teal-500: #10b981;
+  --color-teal-600: #059669;
+  --color-teal-700: #047857;
+
+  /* --- Semantic Colors (LIGHT THEME) --- */
+  --color-background: #ffffff;
+  --color-foreground: var(--color-slate-900);
+  --color-muted: var(--color-slate-600);
+  --color-border: var(--color-slate-200);
+  --color-card: #ffffff;
+  --color-card-hover: var(--color-slate-50);
+  --color-primary: var(--color-solar-500);
+  --color-primary-hover: var(--color-solar-600);
+  --color-primary-foreground: #ffffff;
+  --color-secondary: var(--color-teal-600);
+  --color-surface: var(--color-slate-50);
+
+  /* --- Fonts --- */
+  --font-sans: var(--font-geist-sans), "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-geist-mono), "JetBrains Mono", monospace;
+
+  /* --- Animations --- */
+  --animate-fade-in: fade-in 0.6s ease-out;
+  --animate-fade-in-up: fade-in-up 0.6s ease-out;
+  --animate-slide-in-left: slide-in-left 0.6s ease-out;
+  --animate-slide-in-right: slide-in-right 0.6s ease-out;
+  --animate-scale-in: scale-in 0.4s ease-out;
+  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+}
+
+/* --- Keyframes --- */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-32px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(32px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 25px rgba(245, 158, 11, 0.15); }
+  50% { box-shadow: 0 0 45px rgba(245, 158, 11, 0.3); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* --- Global Styles --- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Selection --- */
+::selection {
+  background-color: var(--color-solar-200);
+  color: var(--color-slate-900);
+}
+
+/* --- Focus Ring Utility --- */
+*:focus-visible {
+  outline: 2px solid var(--color-solar-500);
+  outline-offset: 2px;
+}
+
+/* --- Scrollbar Styling --- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-slate-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-slate-300);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-slate-400);
+}
+
+/* --- Light Glass Card Utility --- */
+.glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.07), 0 4px 6px -2px rgba(15, 23, 42, 0.03);
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 35px -10px rgba(15, 23, 42, 0.12), 0 8px 10px -4px rgba(15, 23, 42, 0.05);
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+/* --- Gradients --- */
+.solar-gradient {
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+}
+
+.solar-gradient-soft {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 50%, #fed7aa 100%);
+}
+
+.solar-gradient-text {
+  background: linear-gradient(135deg, #d97706 0%, #ea580c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.teal-gradient-text {
+  background: linear-gradient(135deg, #059669 0%, #0d9488 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --- Hero Background & Subtle Patterns --- */
+.hero-light-bg {
+  background: radial-gradient(circle at 50% 0%, #fff7ed 0%, #f8fafc 60%, #ffffff 100%);
+}
+
+.dot-pattern {
+  background-image: radial-gradient(circle, #cbd5e1 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.grid-pattern {
+  background-image: linear-gradient(to right, #f1f5f9 1px, transparent 1px),
+                    linear-gradient(to bottom, #f1f5f9 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* --- Range Slider Custom Styling --- */
+input[type="range"] {
+  accent-color: #f59e0b;
+}
